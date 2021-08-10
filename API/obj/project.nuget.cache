@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "GYUoQJAikAuFr81ZWLg3efM5tQ1erM0q2d9KgwQCa6DDFzl29CGlEMykQgPUjbMcPJGX2So6xUTTcSuA/jGc/w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\abrah\\ASPNET_Angular\\GameApp\\API\\API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\abrah\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\abrah\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\abrah\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\abrah\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\abrah\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\abrah\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}
