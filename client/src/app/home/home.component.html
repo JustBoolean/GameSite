@@ -1,18 +1,21 @@
 <div class="container mt-5">
-    <div style='text-align: center;'>
+    <div *ngIf="!registerMode" style='text-align: center;'>
         <h1>Idle Game App </h1>
         <p class="text-lead">By Abraham Perez using Angular/ASPNET CORE 5</p>
         <div class="text-center">
-            <button class="btn btn-primary btn-lg mr-2">
+            <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">
                 Register
+            </button>
+            <button class="btn btn-secondary btn-lg mr-2">
+                Guest
             </button>
         </div>
     </div>
 
-    <div class="container">
+    <div *ngIf="registerMode" class="container">
         <div class="row justify-content-center">
             <div class="col-4">
-                <p>Register Form goes here</p>
+                <app-register [usersHome]="users" (cancelRegister)="cancelRegisterMode($event)"></app-register>
             </div>
         </div>
     </div>
