@@ -21,6 +21,6 @@ export class MembersService {
   }
 
   getMember(username : string) {
-    return this.http.get<Member>(this.baseUrl + 'users', httpOptions);
+    return this.http.get<Member>(this.baseUrl + 'users/' + username, httpOptions);
   }
 }
