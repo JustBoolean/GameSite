@@ -1,3 +1,5 @@
-Implemented profile edit as well as update user photo, however it bugs out every once in a while saving changes despite not clicking the save changes, (check ngSubmit with button and form)
+basic user profile and edit functional and working, work on message feature next
 
-User photo seems to work with uploading and deleting prior photo on cloudinary, check every once in a while to make sure
+update user to store values necessary for game, money, achievements etc...
+
+look up assets for game, want to have fun pictures to go along with the "store" where user can buy more idle
