@@ -60,6 +60,7 @@ namespace API.Controllers
         public async Task<ActionResult<PhotoDTO>> AddPhoto(IFormFile file)
         {
             var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());    
+            await _photoService.DeletePhotoAsync(user.Photo.PublicId);  
             var result = await _photoService.ChangePhotoAsync(file);
             if(result.Error != null) {
                 return BadRequest(result.Error.Message);
@@ -69,7 +70,11 @@ namespace API.Controllers
                 Url = result.SecureUrl.AbsoluteUri,
                 PublicId = result.PublicId
             };
+            
             user.Photo.Url = photo.Url; 
+            user.Photo.PublicId = photo.PublicId;
+
+            
             if(await _userRepository.SaveAllAsync()) {
                 return CreatedAtRoute("GetUser",new {userName = user.UserName} ,_mapper.Map<PhotoDTO>(photo));
             }

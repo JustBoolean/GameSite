@@ -9,7 +9,10 @@
     </div>
     <div class="col-4">
         <div class="card">
-            <img class="img-thumbnail" src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.knownAs}}">
+            <div class="image-change">
+                <img class="img-thumbnail" src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.knownAs}}">
+            </div>
+
             <div class="card-body">
                 <div>
                     <strong>Name: </strong>
@@ -34,7 +37,8 @@
             </div>
 
             <div class="card-footer">
-                <button [disabled]="!editForm.dirty" form="editForm" type="submit" class="btn btn-success btn-block">Save Changes</button>
+                <button form="editForm" type="submit"
+                    class="btn btn-success btn-block">Save Changes</button>
             </div>
         </div>
     </div>
@@ -43,7 +47,8 @@
             <tab heading='About {{member.knownAs}}'>
                 <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
                     <h4>Hello!</h4>
-                    <textarea class="form-control" [(ngModel)]="member.introduction" name="introduction" rows="6"></textarea>
+                    <textarea class="form-control" [(ngModel)]="member.introduction" name="introduction"
+                        rows="6"></textarea>
                     <h4>Interests</h4>
                     <textarea class="form-control" [(ngModel)]="member.interests" name="interests" rows="6"></textarea>
                     <h4 class="mt-2">Location Details: </h4>
@@ -52,6 +57,24 @@
                         <input [(ngModel)]="member.city" type="text" name="city" class="form-control mx-2">
                         <label for="country">Country: </label>
                         <input [(ngModel)]="member.country" type="text" name="country" class="form-control mx-2">
+                    </div>
+                    <div class="row mt-4">
+ 
+                        <div class="col-md-3">
+                 
+                            <h3>Change Photo</h3>
+                 
+                            <div ng2FileDrop
+                                 [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                                 (fileOver)="fileOverBase($event)"
+                                 [uploader]="uploader"
+                                 class="card bg-faded p-3 text-center mb-3 my-drop-zone"
+                                >
+                                 <fa-icon [icon]="uploadIcon"></fa-icon>
+                                Drop Photo
+                            </div>
+                            <input type="file" ng2FileSelect [uploader]="uploader" />
+                        </div>
                     </div>
                 </form>
             </tab>

@@ -1,0 +1,3 @@
+Implemented profile edit as well as update user photo, however it bugs out every once in a while saving changes despite not clicking the save changes, (check ngSubmit with button and form)
+
+User photo seems to work with uploading and deleting prior photo on cloudinary, check every once in a while to make sure

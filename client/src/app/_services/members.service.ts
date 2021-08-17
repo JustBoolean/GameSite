@@ -41,4 +41,8 @@ export class MembersService {
       })
     );
   }
+
+  setPhoto(file: File) {
+    return this.http.post(this.baseUrl + 'users/add-photo', {file})
+  }
 }
