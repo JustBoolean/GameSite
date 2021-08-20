@@ -11,10 +11,10 @@ namespace API
     public class Startup
     {
         private readonly IConfiguration _config;
-        public Startup(IConfiguration config)
+        public Startup( IConfiguration config)
         {
             _config = config;
-        }
+        }  
 
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -24,7 +24,7 @@ namespace API
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });  
             });
 
             services.AddCors();
@@ -48,7 +48,7 @@ namespace API
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
+            app.UseEndpoints(endpoints =>   
             {
                 endpoints.MapControllers();
             });

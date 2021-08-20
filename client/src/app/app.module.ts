@@ -6,7 +6,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -26,6 +26,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
     ServerErrorComponent,
     MemberCardComponent,
     MemberEditComponent,
+    TextInputComponent,
     
   ],
   imports: [
@@ -53,6 +55,7 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
     BrowserAnimationsModule,
     FontAwesomeModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxSpinnerModule,
     SharedModule
   ],

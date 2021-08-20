@@ -21,8 +21,7 @@ export class MemberEditComponent implements OnInit {
   member: Member;
   user: User;
   uploadIcon = faUpload;
-  newPhoto: boolean = false;
-  submitted: boolean = false;
+  changes: boolean = false;
 
   uploader: FileUploader;
   hasBaseDropZoneOver: false;
@@ -48,7 +47,6 @@ export class MemberEditComponent implements OnInit {
   }
 
   updateMember() {
-    this.submitted = true;
     this.memberService.updateMember(this.member).subscribe(() => {
       this.toastr.success('Profile Saved');
       this.editForm.reset(this.member);
@@ -73,7 +71,7 @@ export class MemberEditComponent implements OnInit {
     this.uploader.onAfterAddingFile = (file) => {
       file.withCredentials = false;
       this.fileNew = file._file;
-      this.newPhoto = true;
+      this.changes =true;
     }
   }
   fileOverBase(event: any) {
@@ -81,13 +79,12 @@ export class MemberEditComponent implements OnInit {
   }
 
   reloadCurrentRoute() {
+    this.changes = false;
     setTimeout(() => {
-      let currentUrl = this.router.url;
-      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-      this.router.navigate([currentUrl]);
-      console.log(currentUrl);
-    });
-    }, 1000);
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['member/edit']);
+      }); 
+    }, 1000); 
   }
 
 }
