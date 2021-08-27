@@ -16,7 +16,7 @@ namespace API.Data
         protected override void OnModelCreating(ModelBuilder builder) {
             base.OnModelCreating(builder);
 
-            builder.Entity<UserFollow>().HasKey(key => new {key.SourceUser, key.SourceUserId});
+            builder.Entity<UserFollow>().HasKey(key => new {key.SourceUserId, key.FollowedUserId});
 
             builder.Entity<UserFollow>().HasOne(s => s.SourceUser).WithMany(f => f.UsersFollowed).HasForeignKey(s => s.SourceUserId).OnDelete(DeleteBehavior.Cascade);
 

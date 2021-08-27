@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using API.DTO;
 using API.Entities;
+using API.Helpers;
 
 namespace API.Interfaces
 {
@@ -11,6 +12,6 @@ namespace API.Interfaces
 
         Task<AppUser> GetUserWithFollows(int userId);
 
-        Task<IEnumerable<FollowDTO>> GetUserFollows(string predicate, int userId);
+        Task<PagedList<FollowDTO>> GetUserFollows(FollowsParams followsParams);
     }
 }

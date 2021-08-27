@@ -1,10 +1,11 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Member } from '../_models/member';
 import { PaginatedResult } from '../_models/pagination';
+import { getPaginatedResult, getPaginationHeaders } from './paginationHelper';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,9 @@ export class MembersService {
   members: Member[] = [];
   paginatedResult: PaginatedResult<Member[]> = new PaginatedResult<Member[]>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    
+  }
 
   getMembers(page?: number, itemsPerPage?:number) {
     // if(this.members.length > 0) {
@@ -65,4 +68,16 @@ export class MembersService {
   setPhoto(file: File) {
     return this.http.post(this.baseUrl + 'users/add-photo', {file})
   }
+
+  addFollow(username: string) {
+    return this.http.post(this.baseUrl + 'follows/' + username, {});
+  }
+
+  getFollows(predicate: string, pageNumber: number, pageSize: number) {
+    let params = getPaginationHeaders(pageNumber, pageSize);
+    params = params.append('predicate', predicate);
+    return getPaginatedResult<Partial<Member[]>>(this.baseUrl + 'follows', params, this.http);
+  }
+
+
 }
