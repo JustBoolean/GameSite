@@ -35,6 +35,12 @@ export class AccountService {
       })
     )
   }
+  
+  deleteCurrentUser(user: User){
+    localStorage.setItem('user', JSON.stringify(user));
+    this.currentUserSource.next(user);
+    this.currentUserSource.unsubscribe();
+  }
 
   setCurrentUser(user: User) {
     localStorage.setItem('user', JSON.stringify(user));
